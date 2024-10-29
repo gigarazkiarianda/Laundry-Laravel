@@ -19,10 +19,11 @@
                 <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-user"></i> <span>Akun
                         Kasir</span></a>
             </li>
-            <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('blank-page') }}"><i class="fa-solid fa-jug-detergent"></i>
-                    <span>Barang
-                        Cucian</span></a>
+            <li class="{{ Request::is('laundry') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('laundry') }}">
+                    <i class="fa-solid fa-jug-detergent"></i>
+                    <span>Barang Cucian</span>
+                </a>
             </li>
         </ul>
     </aside>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LaundryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,18 @@ Route::middleware(['auth', 'checkRole:kasir'])->group(function () {
         return "Kasir Dashboard";
     })->name('kasir.index');
 });
+
+
+
+// Route::middleware(['auth', 'checkRole:kasir'])->group(function () {
+    Route::get('/laundry', [LaundryController::class, 'index'])->name('laundry.index');
+    Route::get('/laundry/create', [LaundryController::class, 'create'])->name('laundry.create');
+    Route::post('/laundry', [LaundryController::class, 'store'])->name('laundry.store');
+    Route::get('/laundry/{id}/edit', [LaundryController::class, 'edit'])->name('laundry.edit');
+    Route::put('/laundry/{id}', [LaundryController::class, 'update'])->name('laundry.update');
+    Route::delete('/laundry/{id}', [LaundryController::class, 'destroy'])->name('laundry.destroy');
+// });
+
 
 // Dashboard
 Route::get('/dashboard-general-dashboard', function () {
