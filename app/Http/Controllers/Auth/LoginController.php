@@ -28,7 +28,7 @@ class LoginController extends Controller
         if ($user && Hash::check($credentials['password'], $user->password_hash)) {
             Auth::login($user);
             $request->session()->regenerate();
-            return redirect()->intended('/kasir');
+            return redirect()->intended('dashboard');
         }
     }
 
@@ -38,6 +38,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return view('auth/logout');
+        // return view('auth/login2');
+        return redirect()->intended('login');
     }
 }
