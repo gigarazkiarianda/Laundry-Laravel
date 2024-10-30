@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -19,6 +18,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'username' => 'admin1',
+                'email' => 'admin1@example.com', // Add email for admin
                 'password_hash' => Hash::make('adminpassword'),
                 'role' => 'admin',
                 'created_at' => now(),
@@ -26,6 +26,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username' => 'kasir1',
+                'email' => 'kasir1@example.com', // Add email for cashier
                 'password_hash' => Hash::make('kasirpassword'),
                 'role' => 'kasir',
                 'created_at' => now(),

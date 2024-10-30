@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLaundryTable extends Migration
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLaundryTable extends Migration
      */
     public function up()
     {
-        Schema::create('laundry', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id(); // Kolom id
-            $table->string('customer_name'); // Kolom customer_name
-            $table->string('phone'); // Kolom phone
-            $table->enum('status', ['selesai', 'dibayar', 'diambil', 'proses pencucian', 'pending']); // Kolom status
+            $table->string('name'); // Kolom name
+            $table->decimal('price', 10, 2); // Kolom price
+            $table->integer('duration'); // Kolom duration
             $table->timestamps(); // Kolom created_at dan updated_at
         });
     }
@@ -29,6 +29,6 @@ class CreateLaundryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laundry');
+        Schema::dropIfExists('items');
     }
 }

@@ -9,6 +9,9 @@ class Laundry extends Model
 {
     use HasFactory;
 
+    // Specify the table name if it's different from the default pluralized version
+    protected $table = 'laundry';
+
     protected $fillable = [
         'customer_name',
         'note_number',
@@ -18,13 +21,13 @@ class Laundry extends Model
         'employee_id',
     ];
 
-    // Relasi ke User
+    // Relationship with User (Employee)
     public function employee()
     {
         return $this->belongsTo(User::class, 'employee_id');
     }
 
-    // Relasi ke Transaction
+    // Relationship with Transaction
     public function transaction()
     {
         return $this->hasOne(Transaction::class);
